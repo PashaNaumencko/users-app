@@ -2,17 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Segment, List, Pagination, Header, Dimmer, Loader } from 'semantic-ui-react';
 import { fetchUsersRequest, showExpandedUser } from './actions';
-import UserItem from '../../components/UserItem';
-import UserModal from '../../components/UserModal';
+import UserItem from '../UserItem';
+import UserModal from '../UserModal';
 
 class UserList extends React.Component {
   componentDidMount() {
     this.props.fetchUsersRequest();
   }
 
-  onPaginationChange = (event, { activePage }) => {
-    this.props.fetchUsersRequest(activePage);
-  };
+  onPaginationChange = (event, { activePage }) => this.props.fetchUsersRequest(activePage);
 
   render() {
     const { users, currentPage, totalPages, loading, expandedUser } = this.props;

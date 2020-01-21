@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import Routing from '../../containers/Routing';
+import Routing from '../Routing';
 import store from '../../store';
 
 const history = createBrowserHistory();

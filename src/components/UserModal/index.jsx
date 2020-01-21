@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Segment, Modal, Image, Header, Grid, Button, Icon } from 'semantic-ui-react';
-import { hideExpandedUser } from '../../containers/UserList/actions';
+import { hideExpandedUser } from '../UserList/actions';
 
 const UserModal = ({
   user: {

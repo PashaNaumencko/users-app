@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { List, Image } from 'semantic-ui-react';
-import { showExpandedUser } from '../../containers/UserList/actions';
+import { showExpandedUser } from '../UserList/actions';
 
 const UserItem = ({ user, showExpandedUser }) => {
   const onUserClick = () => showExpandedUser(user);

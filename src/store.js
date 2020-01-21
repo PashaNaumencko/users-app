@@ -6,7 +6,7 @@ import {
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import userListData from './containers/UserList/reducer';
+import userListData from './components/UserList/reducer';
 
 const initialState = {};
 
