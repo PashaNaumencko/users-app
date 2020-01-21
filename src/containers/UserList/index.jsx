@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Segment, List, Pagination, Header, Dimmer, Loader } from 'semantic-ui-react';
-import { fetchUsersRequest } from './actions';
+import { fetchUsersRequest, showExpandedUser } from './actions';
 import UserItem from '../../components/UserItem';
+import UserModal from '../../components/UserModal';
 
 class UserList extends React.Component {
   componentDidMount() {
-    console.log('mount');
     this.props.fetchUsersRequest();
-    console.log('mount');
   }
 
   onPaginationChange = (event, { activePage }) => {
@@ -16,15 +15,14 @@ class UserList extends React.Component {
   };
 
   render() {
-    const { users, currentPage, totalPages, loading } = this.props;
-    console.log(this.props);
+    const { users, currentPage, totalPages, loading, expandedUser } = this.props;
     return loading ? (
       <Dimmer active inverted>
         <Loader inverted content="Loading" />
       </Dimmer>
     ) : (
       <Segment>
-        <List divided verticalAlign="middle" size="large">
+        <List divided verticalAlign="middle" size="massive" selection>
           {
             users.map((user) => <UserItem key={user.id} user={user} />)
           }
@@ -39,20 +37,23 @@ class UserList extends React.Component {
         ) : (
           <Header as="h3" textAlign="center" content="No available users" />
         )}
+        {expandedUser ? <UserModal /> : null}
       </Segment>
     );
   }
 }
 
-const mapStateToProps = ({ userListData: { users, currentPage, totalPages, loading } }) => ({
+const mapStateToProps = ({ userListData: { users, currentPage, totalPages, loading, expandedUser } }) => ({
   users,
   currentPage,
   totalPages,
-  loading
+  loading,
+  expandedUser
 });
 
 const mapDispatchToProps = {
-  fetchUsersRequest
+  fetchUsersRequest,
+  showExpandedUser
 };
 
 export default connect(

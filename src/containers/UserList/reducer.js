@@ -1,11 +1,12 @@
-import { fetchUsers } from '../../routines/index';
+import { fetchUsers, SHOW_EXPANDED_USER, HIDE_EXPANDED_USER } from '../../routines/index';
 
 const initialState = {
   users: [],
   currentPage: null,
   totalPages: null,
   loading: false,
-  error: null
+  error: null,
+  expandedUser: null
 };
 
 export default (state = initialState, action) => {
@@ -31,6 +32,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false
+      };
+    case SHOW_EXPANDED_USER:
+      return {
+        ...state,
+        expandedUser: action.payload
+      };
+    case HIDE_EXPANDED_USER:
+      return {
+        ...state,
+        expandedUser: null
       };
     default:
       return state;
