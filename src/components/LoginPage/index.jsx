@@ -5,8 +5,9 @@ import { Segment, Header, Form, Message, Button } from 'semantic-ui-react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextField from '../TextField';
-
 import { loginRequest } from './actions';
+
+import styles from './styles.module.scss';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class LoginPage extends React.Component {
     if (validator.isEmpty(password)) {
       passwordError = 'Required';
     } else if (password.length < 8) {
-      passwordError = 'Minimum length - 7 characters';
+      passwordError = 'Minimum length - 8 characters';
     }
     this.setState((prevState) => ({ passwordError, touched: { ...prevState.touched, password: true } }));
     return passwordError;
@@ -66,9 +67,9 @@ class LoginPage extends React.Component {
     const { loading, loginError, isAuthorized } = this.props;
 
     return isAuthorized ? <Redirect to="/" /> : (
-      <Segment basic padded style={{ maxWidth: 450 }}>
+      <Segment basic padded className={styles.loginFormContainer}>
         <Header as="h3" content="Login" textAlign="center" />
-        <Form size="big" error={loginError} onSubmit={this.onSubmit}>
+        <Form size="big" error={loginError} onSubmit={this.onSubmit} className={styles.formBlock}>
           <TextField
             label="Email"
             placeholder="Email"

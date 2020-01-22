@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Segment, Modal, Image, Header, Grid, Button, Icon } from 'semantic-ui-react';
+import { Segment, Modal, Image, Grid, Button, Icon } from 'semantic-ui-react';
 import { hideExpandedUser } from '../UserList/actions';
+
+import styles from './styles.module.scss';
 
 const UserModal = ({
   user: {
@@ -17,17 +19,21 @@ const UserModal = ({
       <Modal.Header>User Information</Modal.Header>
       <Modal.Content>
         <Grid columns={2} divided verticalAlign="middle">
-          <Grid.Column textAlign="center">
+          <Grid.Column textAlign="center" width={4}>
             <Image src={imgUrl} avatar size="small" centered fluid />
           </Grid.Column>
-          <Grid.Column>
+          <Grid.Column width={8}>
             <Segment basic>
-              ID:
-              {' '}
-              {`${firstName} ${lastName}`}
-              Email:
-              {' '}
-              {email}
+              <div className={styles.userInfo}>
+                ID:
+                {' '}
+                {`${firstName} ${lastName}`}
+              </div>
+              <div className={styles.userInfo}>
+                Email:
+                {' '}
+                {email}
+              </div>
             </Segment>
           </Grid.Column>
         </Grid>
