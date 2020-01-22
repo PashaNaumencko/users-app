@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Segment, Modal, Image, Grid, Button, Icon } from 'semantic-ui-react';
 import { hideExpandedUser } from '../UserList/actions';
@@ -43,6 +44,11 @@ const UserModal = ({
       </Modal.Actions>
     </Modal>
   );
+};
+
+UserModal.propTypes = {
+  hideExpandedUser: PropTypes.func,
+  user: PropTypes.object
 };
 
 const mapStateToProps = ({ userListData: { expandedUser } }) => ({

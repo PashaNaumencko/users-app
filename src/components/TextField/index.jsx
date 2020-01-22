@@ -24,4 +24,15 @@ const TextField = ({ label, placeholder, type = 'text', error, loading, touched,
   </>
 );
 
+TextField.propTypes = {
+  loading: PropTypes.bool,
+  touched: PropTypes.bool,
+  type: PropTypes.string,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  error: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func
+};
+
 export default TextField;

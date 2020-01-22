@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { List, Image } from 'semantic-ui-react';
 import { showExpandedUser } from '../UserList/actions';
@@ -16,6 +17,11 @@ const UserItem = ({ user, showExpandedUser }) => {
       </List.Content>
     </List.Item>
   );
+};
+
+UserItem.propTypes = {
+  showExpandedUser: PropTypes.func,
+  user: PropTypes.object
 };
 
 const mapDispatchToProps = {

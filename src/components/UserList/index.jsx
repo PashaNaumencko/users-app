@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Segment, List, Pagination, Header, Dimmer, Loader } from 'semantic-ui-react';
-import { fetchUsersRequest, showExpandedUser } from './actions';
+import { Segment, List, Pagination, Header, Loader } from 'semantic-ui-react';
+import { fetchUsersRequest } from './actions';
 import UserItem from '../UserItem';
 import UserModal from '../UserModal';
 
@@ -43,6 +44,15 @@ class UserList extends React.Component {
   }
 }
 
+UserList.propTypes = {
+  loading: PropTypes.bool,
+  fetchUsersRequest: PropTypes.func,
+  users: PropTypes.array,
+  expandedUser: PropTypes.object,
+  totalPages: PropTypes.number,
+  currentPage: PropTypes.number
+};
+
 const mapStateToProps = ({ userListData: { users, currentPage, totalPages, loading, expandedUser } }) => ({
   users,
   currentPage,
@@ -52,8 +62,7 @@ const mapStateToProps = ({ userListData: { users, currentPage, totalPages, loadi
 });
 
 const mapDispatchToProps = {
-  fetchUsersRequest,
-  showExpandedUser
+  fetchUsersRequest
 };
 
 export default connect(

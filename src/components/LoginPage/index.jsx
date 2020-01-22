@@ -101,11 +101,12 @@ class LoginPage extends React.Component {
   }
 }
 
-// LoginForm.propTypes = {
-//   loading: PropTypes.bool,
-//   loginRequest: PropTypes.func,
-//   history: PropTypes.object
-// };
+LoginPage.propTypes = {
+  loading: PropTypes.bool,
+  loginRequest: PropTypes.func,
+  loginError: PropTypes.object,
+  isAuthorized: PropTypes.bool
+};
 
 const mapStateToProps = ({ authData: { loading, error, isAuthorized } }) => ({
   loginError: error,
