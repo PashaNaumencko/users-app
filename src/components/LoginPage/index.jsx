@@ -69,7 +69,7 @@ class LoginPage extends React.Component {
     return isAuthorized ? <Redirect to="/" /> : (
       <Segment basic padded className={styles.loginFormContainer}>
         <Header as="h3" content="Login" textAlign="center" />
-        <Form size="big" error={loginError} onSubmit={this.onSubmit} className={styles.formBlock}>
+        <Form size="big" error={Boolean(loginError)} onSubmit={this.onSubmit} className={styles.formBlock}>
           <TextField
             label="Email"
             placeholder="Email"
@@ -104,7 +104,7 @@ class LoginPage extends React.Component {
 LoginPage.propTypes = {
   loading: PropTypes.bool,
   loginRequest: PropTypes.func,
-  loginError: PropTypes.object,
+  loginError: PropTypes.string,
   isAuthorized: PropTypes.bool
 };
 
