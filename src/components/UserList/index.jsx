@@ -5,6 +5,8 @@ import { fetchUsersRequest, showExpandedUser } from './actions';
 import UserItem from '../UserItem';
 import UserModal from '../UserModal';
 
+import styles from './styles.module.scss';
+
 class UserList extends React.Component {
   componentDidMount() {
     this.props.fetchUsersRequest();
@@ -15,11 +17,11 @@ class UserList extends React.Component {
   render() {
     const { users, currentPage, totalPages, loading, expandedUser } = this.props;
     return loading ? (
-      <Dimmer active inverted>
-        <Loader inverted content="Loading" />
-      </Dimmer>
+      <div className={styles.loaderBlock}>
+        <Loader active content="Loading" />
+      </div>
     ) : (
-      <Segment>
+      <Segment basic fluid>
         <List divided verticalAlign="middle" size="massive" selection>
           {
             users.map((user) => <UserItem key={user.id} user={user} />)

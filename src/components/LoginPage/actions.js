@@ -13,10 +13,10 @@ export const logout = () => {
   return { type: LOG_OUT };
 };
 
-export const loginRequest = ({ username, password }) => async (dispatch) => {
+export const loginRequest = ({ email, password }) => async (dispatch) => {
   try {
     dispatch(login.request());
-    const { token } = await services.login({ username, password });
+    const { token } = await services.login({ email, password });
     dispatch(login.success());
     localStorage.setItem('token', token);
   } catch ({ error }) {

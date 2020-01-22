@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import validator from 'validator';
 import { Segment, Header, Form, Message, Button } from 'semantic-ui-react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextField from '../TextField';
 
@@ -47,25 +48,25 @@ class LoginPage extends React.Component {
     return passwordError;
   };
 
-  onEmailChange = (event, { value: email }) => this.setState({ email, emailError: null });
+  onEmailChange = (event, { value: email }) => this.setState({ email });
 
-  onPasswordChange = (event, { value: password }) => this.setState({ password, passwordError: null });
+  onPasswordChange = (event, { value: password }) => this.setState({ password });
 
   validateForm = () => [!this.validateEmail(), !this.validatePassword()].every(Boolean);
 
   onSubmit = () => {
     if (this.validateForm()) {
-      const { username, password } = this.state;
-      this.props.loginRequest({ username, password });
+      const { email, password } = this.state;
+      this.props.loginRequest({ email, password });
     }
   };
 
   render() {
     const { emailError, passwordError, touched } = this.state;
-    const { loading, loginError } = this.props;
+    const { loading, loginError, isAuthorized } = this.props;
 
-    return (
-      <Segment padded style={{ minWidth: 450 }}>
+    return isAuthorized ? <Redirect to="/" /> : (
+      <Segment basic padded style={{ maxWidth: 450 }}>
         <Header as="h3" content="Login" textAlign="center" />
         <Form size="big" error={loginError} onSubmit={this.onSubmit}>
           <TextField
@@ -105,9 +106,10 @@ class LoginPage extends React.Component {
 //   history: PropTypes.object
 // };
 
-const mapStateToProps = ({ authData: { loading, error } }) => ({
+const mapStateToProps = ({ authData: { loading, error, isAuthorized } }) => ({
   loginError: error,
-  loading
+  loading,
+  isAuthorized
 });
 
 const mapDispatchToProps = {

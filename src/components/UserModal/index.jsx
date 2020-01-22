@@ -13,7 +13,7 @@ const UserModal = ({
 }) => {
   const onCloseClick = () => hideExpandedUser();
   return (
-    <Modal size="tiny" open>
+    <Modal size="medium" open>
       <Modal.Header>User Information</Modal.Header>
       <Modal.Content>
         <Grid columns={2} divided verticalAlign="middle">
@@ -22,17 +22,18 @@ const UserModal = ({
           </Grid.Column>
           <Grid.Column>
             <Segment basic>
-              ID: {`${firstName} ${lastName}`}
-              Email: {email}
+              ID:
+              {' '}
+              {`${firstName} ${lastName}`}
+              Email:
+              {' '}
+              {email}
             </Segment>
           </Grid.Column>
         </Grid>
       </Modal.Content>
       <Modal.Actions>
-        <Button primary onClick={onCloseClick}>
-            Close
-          <Icon name="times rectangle" />
-        </Button>
+        <Button primary onClick={onCloseClick} content="Close" icon={<Icon name="times rectangle" />} />
       </Modal.Actions>
     </Modal>
   );

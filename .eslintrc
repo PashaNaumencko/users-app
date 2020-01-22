@@ -28,6 +28,7 @@
         "react/jsx-indent": ["error", 2],
         "react/jsx-indent-props": ["error", 2],
         "react/forbid-prop-types": "off",
+        "react/jsx-props-no-spreading": "off",
         "react/require-default-props": "off",
         "react/no-did-update-set-state":"off",
         "comma-dangle": "off",
