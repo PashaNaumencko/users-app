@@ -2,6 +2,7 @@ import * as services from '../../services';
 import store from '../../store';
 import { login, LOG_OUT, SET_AUTH } from '../../routines/index';
 
+// check if the user is logged in
 if (localStorage.getItem('token')) {
   store.dispatch({
     type: SET_AUTH
