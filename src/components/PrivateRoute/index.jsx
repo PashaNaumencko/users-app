@@ -10,7 +10,7 @@ const PrivateRoute = ({ component: Component, isAuthorized, location, ...props }
 );
 
 PrivateRoute.propTypes = {
-  location: PropTypes.string,
+  location: PropTypes.object,
   component: PropTypes.object,
   isAuthorized: PropTypes.bool
 };

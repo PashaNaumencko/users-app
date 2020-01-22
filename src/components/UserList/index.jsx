@@ -22,7 +22,7 @@ class UserList extends React.Component {
         <Loader active content="Loading" />
       </div>
     ) : (
-      <Segment basic fluid>
+      <Segment basic fluid="true">
         <List divided verticalAlign="middle" size="massive" selection>
           {
             users.map((user) => <UserItem key={user.id} user={user} />)

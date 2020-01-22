@@ -21,7 +21,7 @@ const UserModal = ({
       <Modal.Content>
         <Grid columns={2} divided verticalAlign="middle">
           <Grid.Column textAlign="center" width={4}>
-            <Image src={imgUrl} avatar size="small" centered fluid />
+            <Image src={imgUrl} avatar size="small" centered fluid="true" />
           </Grid.Column>
           <Grid.Column width={8}>
             <Segment basic>

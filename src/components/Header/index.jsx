@@ -17,7 +17,7 @@ const Header = ({ isAuthorized, logout }) => {
       {isAuthorized ? (
         <Menu.Menu position="right">
           <Menu.Item>
-            <Button primary onClick={onLogoutClick} content="Logout" icon={<Icon name="logout" />} />
+            <Button primary onClick={onLogoutClick} content="Logout" icon={<Icon name="log out" />} />
           </Menu.Item>
         </Menu.Menu>
       ) : null}
