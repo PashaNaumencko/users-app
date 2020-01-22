@@ -14,10 +14,11 @@ function getFetchArgs(args) {
     if (args.type === 'GET') {
       throw new Error('GET request does not support request body.');
     }
-    delete headers['Content-Type'];
-    const formData = new FormData();
-    Object.keys(args.request).forEach((arg) => formData.append(`${arg}`, `${args.request[arg]}`));
-    body = formData;
+    // delete headers['Content-Type'];
+    // const formData = new FormData();
+    // Object.keys(args.request).forEach((arg) => formData.append(`${arg}`, `${args.request[arg]}`));
+    // body = formData;
+    body = JSON.stringify(args.request);
   }
   return {
     method: args.type,

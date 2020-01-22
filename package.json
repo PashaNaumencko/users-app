@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "history": "^4.10.1",
     "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
     "query-string": "^6.10.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -19,7 +20,8 @@
     "redux-routines": "^3.0.2",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.88.2"
+    "semantic-ui-react": "^0.88.2",
+    "validator": "^12.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

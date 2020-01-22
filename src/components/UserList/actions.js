@@ -6,8 +6,8 @@ export const fetchUsersRequest = (page = 1) => async (dispatch) => {
     dispatch(fetchUsers.request());
     const { page: currentPage, total_pages: totalPages, data: users } = await services.getUsers({ page });
     dispatch(fetchUsers.success({ currentPage, totalPages, users }));
-  } catch (error) {
-    dispatch(fetchUsers.failure(error.message));
+  } catch ({ error }) {
+    dispatch(fetchUsers.failure(error));
   }
   dispatch(fetchUsers.fulfill());
 };
