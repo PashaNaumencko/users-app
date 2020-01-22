@@ -5,6 +5,7 @@ import Header from '../Header';
 import UserList from '../UserList';
 import LoginPage from '../LoginPage';
 import PrivateRoute from '../PrivateRoute';
+import NotFound from '../NotFound';
 
 const Routing = () => (
   <Container>
@@ -13,7 +14,7 @@ const Routing = () => (
       <Switch>
         <PrivateRoute exact path="/" component={UserList} />
         <Route exact path="/login" component={LoginPage} />
-        {/* <Route path="*" component={NotFound} /> */}
+        <Route path="*" component={NotFound} />
       </Switch>
     </Segment>
 
